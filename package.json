@@ -1,0 +1,29 @@
+{
+  "name": "The-3AM-Crew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseSachango/The-3AM-Crew.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoseSachango/The-3AM-Crew/issues"
+  },
+  "homepage": "https://github.com/JoseSachango/The-3AM-Crew#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "socket.io": "^3.0.4"
+  }
+}
