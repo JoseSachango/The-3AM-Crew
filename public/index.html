@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <style>
+            footer {
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              
+              text-align: right;
+            }
+        </style>
+       
+    </head>
+    <body>
+
+        <!--Make a partials template for the footer and navbar-->
+        <nav class="navbar navbar-expand-lg text-white navbar-dark bg-primary">
+
+                <div class="col-2">
+
+                    <a class="navbar-brand" href="#">Léxi</a>
+
+                </div>
+            
+          
+                <!--Hide these link options if you are on the login page-->
+                <div class="col-10 float-right text-white">
+
+                    <a class="d-inline nav-link text-white float-right" href="#">Home <span class="sr-only">(current)</span></a>
+                  
+                    <a class="d-inline nav-link text-white float-right" href="#">Link</a>
+
+                    <a class="d-inline nav-link text-white float-right" href="#">Link</a>
+                
+
+                </div>
+                  
+                
+             
+            </div>
+          </nav>
+
+          <div class="row">
+
+            
+              <div class="col-3 jumbotron  w-25 ml-5 mt-5 d-inline-block">
+                <div class="container">
+                  <h1 class="display-4">Chat With Peace of Mind</h1>
+                  <p class="lead mt-3">Léxi is an online realtime chat application that allows users to chat securely knowing that their information is not being sold to third parties. Try it now</p>
+                </div>
+              </div>
+              
+              <div class="col-4 d-inline">
+
+                <form class="mx-auto w-75 mt-5 border rounded p-5 bg-light">
+                    <h4 class="mb-4 mt-1">Log In</h4>
+
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Email</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Password</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+
+                   
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+
+                  </form>
+              </div>
+
+              <div class="col-4 d-inline">
+                
+                <form class="mx-auto w-75 mt-5 border rounded p-5 bg-light">
+                    <h4 class="mb-4 mt-1">Register</h4>
+
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Email</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Password</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register</button>
+
+                   
+                   
+                    
+
+                  </form>
+              </div>
+
+          </div>
+        
+
+          <footer class="row mt-5 bg-primary">
+              <div class="logout text-white ml-5 ">
+                <a class="logout d-inline nav-link text-white float-right" href="#">Logout</a>
+              </div>
+          </footer>
+
+
+          <!--
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+          -->
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="index1.js"></script>
+
+
+    </body>
+</html>
