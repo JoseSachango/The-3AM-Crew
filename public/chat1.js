@@ -46,7 +46,7 @@ $(function(){
                $(".chatMessages").scrollTop() 
 
             });
-
+            //------------------------------------------------------------------------------------
 
             $("#sendButton").on("click",function(event){
 
@@ -85,10 +85,19 @@ $(function(){
 
                 $(".chatMessages").scrollTop() 
             })
+            //-------------------------------------------------------------------------------------------
 
+            //When you click a user on the left column it activates a socket.emit("message","*chat room name*")
+            //The server will be listening for all messages, but when the message is "Chatroomname *Name*" it
+            //uses .split() to grab the *Name* from the string and creates a chat room with that name
 
+            $(".usersActive").on("click",function(event){
 
+                var userId = event.target.gettAttribute("id")
+                var chatName = `chatName&${userId}`
 
+                socket.emit("MessageFromTheClient",chatName)
+            })
 
 
 
@@ -102,5 +111,3 @@ $(function(){
 
 
 
-
-//socket.emit("UserOnline", variable)

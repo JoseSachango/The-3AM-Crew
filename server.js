@@ -64,6 +64,7 @@ app.use(
     io.on("connection",(socket)=>{
     
         console.log("The server has registered a socket connection")
+
     
         //when a user connects broadcast it only to the user
         socket.emit("message","Welcome to Lexi")
@@ -76,13 +77,24 @@ app.use(
             io.emit("message","A user has left the chat")
         })
 
+        //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"
+
+
         //when the server recieves an emitter with the name "MessageFromTheClient" it broadcasts the message to everyone but the current client.
         socket.on("MessageFromTheClient",function(userMessage){
 
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
             console.log(userMessage)
+
+            var chatRoomName = userMessage.split("&")
+
+            if(chatRoomName[0]==="chatName"){
+                //create a room for private connection using sockets
+            }
+
+
             socket.broadcast.emit("message",userMessage)
-        })
+        });
     
     })
 
