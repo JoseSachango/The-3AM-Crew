@@ -76,6 +76,10 @@ module.exports = function(app){
 
     });
 
+
+    //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"
+    
+
   
 
 
