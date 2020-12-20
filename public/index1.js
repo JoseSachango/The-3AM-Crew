@@ -97,22 +97,22 @@ $(function () {
 
 
         var registerEmail = $("#registerEmail").val().trim()
-        //var registerUserName = $("#registerUserName").val().trim()
+        var registerUserName = $("#registerUserName").val().trim()
         var registerPassword = $("#registerPassword").val().trim()
 
         console.log(registerEmail)
-        //console.log(registerUserName)
+        console.log(registerUserName)
         console.log(registerPassword)
 
         //have to delete username functionality because it's not compatible with passport
         var registerCredentials = {
             email: registerEmail,
-            //username: registerUserName,
+            username: registerUserName,
             password: registerPassword
         }
 
         //!registerCredentials.username ||
-        if (!registerCredentials.email || !registerCredentials.password) {
+        if (!registerCredentials.email || !registerCredentials.username || !registerCredentials.password) {
             return;
         }
 

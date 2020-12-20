@@ -53,11 +53,22 @@ module.exports = function(app){
 
         db.User.create({
             email: request.body.email,
-            username: request.body.username,
+            //username: request.body.username,
             password: request.body.password
         }).then(()=>{
 
-            response.end();
+            db.Current_user.create({
+                email: request.body.email,
+                username: request.body.username,
+                password: request.body.password
+
+            }).then(()=>{
+
+            }).catch(err=>{
+                response.status(404).send(err)
+            })
+
+            
 
         }).catch(err=>{
 
