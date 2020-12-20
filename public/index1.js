@@ -1,10 +1,6 @@
 $(function(){
 
     
-    
-
-
-    
     $("#loginForm").on("submit",function(event){
 
             event.preventDefault()
@@ -12,6 +8,8 @@ $(function(){
             var loginEmail = $("#loginEmail").val().trim()
             var loginPassword = $("#loginPassword").val().trim()
         
+            localStorage.setItem("loginEmail", loginEmail)
+            
             console.log(loginEmail)
             console.log(loginPassword)
 

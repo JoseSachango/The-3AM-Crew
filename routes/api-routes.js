@@ -95,15 +95,18 @@ console.log("the update to login values was made successfully")
 
     //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"
     
-
-  
-
-
-
+    app.put("/api/userbye", function(request, response) {
+    
+        console.log("logging the data sent in with the put request")
+        console.log(request.body.email)
+        console.log(request.body.isLoggedIn)
+        db.User.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.email}}).then(result => {
+            console.log("this is the response returned from the update event")
+            console.log(result)
+            response.end()
+        }).catch(err => {
+            console.log("this is the error returned from the update event")
+            console.log(err)
+        })
+})
 }
-
-
-
-
-
-
