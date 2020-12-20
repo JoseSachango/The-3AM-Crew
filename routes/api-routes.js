@@ -64,6 +64,8 @@ module.exports = function(app){
 
             }).then(()=>{
 
+                response.end()
+                
             }).catch(err=>{
                 response.status(404).send(err)
             })
