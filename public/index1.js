@@ -30,6 +30,17 @@ $(function(){
                 data: loginCredentials //this data is stored in request.body.*Object key(Object=loginCredentials)*
 
             }).then((result)=>{
+                var newObj = { isLoggedIn: 1, userEmail: result.email}
+
+                $.ajax("/api/validate",{
+                    type:"PUT",
+                    data: newObj
+                }).then((results2) => {
+                        console.log("ajax call was made successfully")
+                        console.log(results2)
+                }).catch(err => {
+                    console.log(err)
+                })
 
                 console.log("This is the result we got from our database: ")
                 console.log(result)
@@ -86,17 +97,20 @@ $(function(){
                     
                 
                 var registerEmail = $("#registerEmail").val().trim()
+                var registerUserName = $("#registerUserName").val().trim()
                 var registerPassword = $("#registerPassword").val().trim()
             
                 console.log(registerEmail)
+                console.log(registerUserName)
                 console.log(registerPassword)
 
                 var registerCredentials = {
                     email: registerEmail,
+                    username: registerUserName,
                     password: registerPassword
                 }
 
-                if (!registerCredentials.email || !registerCredentials.password) {
+                if (!registerCredentials.email || !registerCredentials.username ||!registerCredentials.password) {
                     return;
                 }
 
