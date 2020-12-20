@@ -1,163 +1,175 @@
+<!--Make a partials template for the footer and navbar-->
+<nav class="navbar navbar-expand-lg text-white navbar-dark bg-primary">
 
-        <!--Make a partials template for the footer and navbar-->
-        <nav class="navbar navbar-expand-lg text-white navbar-dark bg-primary">
+    <div class="col-2">
 
-                <div class="col-2">
+        <!--avatar that comes from a table in our database-->
+        <!--Create an array of preselected avatars from people to choose from or maybe randomly assign avatars to people-->
+        <a class="navbar-brand border rounded-circle bg-light" href="#"><img
+                src="https://img.icons8.com/doodle/48/000000/user-male-skin-type-5.png" /></a>
 
-                    <!--avatar that comes from a table in our database-->
-                    <!--Create an array of preselected avatars from people to choose from or maybe randomly assign avatars to people-->
-                    <a class="navbar-brand border rounded-circle bg-light" href="#"><img  src="https://img.icons8.com/doodle/48/000000/user-male-skin-type-5.png"/></a>
+    </div>
 
-                </div>
-            
-          
-                <!--Hide these link options if you are on the login page-->
-                <div class="col-10 float-right text-white">
 
-                    <a id="loginPage" class="d-inline nav-link text-white float-right" href="#"><img src="https://img.icons8.com/officel/40/000000/home.png"/></a>
-                  
-                    <!--Add functionallity to delete records-->
-                    <a id="deleteChat" class="d-inline nav-link text-white float-right" href="#"><img src="https://img.icons8.com/office/40/000000/trash.png"/></a>
+    <!--Hide these link options if you are on the login page-->
+    <div class="col-10 float-right text-white">
 
-                    <a id="createChat"class="d-inline nav-link text-white float-right" href="#"><img src="https://img.icons8.com/offices/40/000000/multi-edit.png"/></a>
-                
+        <a id="loginPage" class="d-inline nav-link text-white float-right" href="#"><img
+                src="https://img.icons8.com/officel/40/000000/home.png" /></a>
 
-                </div>
-                  
-                
-             
-            </div>
+        <!--Add functionallity to delete records-->
+        <a id="deleteChat" class="d-inline nav-link text-white float-right" href="#"><img
+                src="https://img.icons8.com/office/40/000000/trash.png" /></a>
 
-        </nav>
+        <a id="createChat" class="d-inline nav-link text-white float-right" href="#"><img
+                src="https://img.icons8.com/offices/40/000000/multi-edit.png" /></a>
 
-          <div class="row">
-                
-            <div class="col-3 border-right" style="padding-bottom: 100%; background: rgb(45, 200, 228);">
-                <h5 class="mt-5 text-white"><img class="mr-2 ml-5" style="size: 30px;" src="https://img.icons8.com/ultraviolet/40/000000/speech-bubble-with-dots.png"/>Chat Rooms:</h5>
-                <!--You should be able to name the chatgroup-->
-                <ul class="chatGroups">
-                    <!--
+
+    </div>
+
+
+
+    </div>
+
+</nav>
+
+<div class="row">
+
+    <div class="col-3 border-right" style="padding-bottom: 100%; background: rgb(45, 200, 228);">
+        {{!-- <h5 class="mt-5 text-white"><img class="mr-2 ml-5" style="size: 30px;"
+                src="https://img.icons8.com/ultraviolet/40/000000/speech-bubble-with-dots.png" />Chat Rooms:</h5>
+        <!--You should be able to name the chatgroup-->
+        <ul class="chatGroups">
+            <!--
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="The 3AM Crew">
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="Sequelize Study Group">
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="Bootstrap Study Group">
 
                     -->
-                 
 
-                </ul>
 
-                <h5 class="mt-5 text-white"><img class="mr-4 ml-5" src="https://img.icons8.com/color/30/000000/group.png"/>Users: </h5>
-                
-                <!--You can either chat in a group or chat to an individual user who's online-->
-                <ul class="users">
+        </ul> --}}
 
-                    <!--
+        <h5 class="mt-5 text-white"><img class="mr-4 ml-5"
+                src="https://img.icons8.com/color/30/000000/group.png" />Users: </h5>
+
+        <!--You can either chat in a group or chat to an individual user who's online-->
+        <ul class="users">
+
+            <!--
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="Rachel">
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="Diego">
                     <input class="btn btn-secondary w-75 mb-2" type="submit" value="Alisa">
                     -->
-                  
-
-                    {{#each User }}
-                        {{> users}}
-                    {{/each}}
-
-                </ul>
-               
-
-            </div>
-
-            <div id="currentChat" class="col-9">
-
-                        <!--Make this a partial handlebars file (left chat)-->
-                        <div class="row">
-
-                            <div class="col-6">
-                                <div class="d-block bg-warning border rounded  mt-3 ">
-                                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero libero! Ipsum, iure tempora?</p>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                            
-                            </div>
-
-                        </div>
-
-                        <!--Make this a partial handlebars file (right chat)-->
-                        <div class="row">
-
-                            <div class="col-6">
-                            
-                            </div>
-
-                            <div class="col-6">
-                                <div class="d-block bg-warning border rounded  mt-3 ">
-                                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero libero! Ipsum, iure tempora?</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-6">
-                                <div class="d-block bg-warning border rounded  mt-3 ">
-                                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero libero! Ipsum, iure tempora?</p>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                
-                            </div>
-
-                        </div>
-
-               
-
-               
-
-            </div>
 
 
+            {{#each User }}
+            {{#if dataValues.isLoggedIn}}
+            {{> users}}
+            {{/if}}
+            {{/each}}
+
+        </ul>
 
 
-                
-            
-            
+    </div>
 
-          </div>
+    <div id="currentChat" class="col-9">
 
-          <div class="row chatbox" style="position:fixed; left: 0; bottom:0; width: 100%;">
+        <!--Make this a partial handlebars file (left chat)-->
+        <div class="row">
 
-            <div class="col">
-
-                <div class="row " style="bottom: 0;">
-
-                    <div class="col-3">
-                        
-                    </div>
-                    <div class="input-group mb-3  col-9 ">
-                        <input id="chatMessage" type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
-                        </div>
-                    </div>
-
+            <div class="col-6">
+                <div class="d-block bg-warning border rounded  mt-3 ">
+                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti
+                        facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero
+                        libero! Ipsum, iure tempora?</p>
                 </div>
+            </div>
 
-                <div class="row">
-
-                    <footer class="row bg-primary" style="width: 100%; bottom: 0; left: 0;">
-                        <div class="logout text-white ml-5 ">
-                        <a class="logout d-inline nav-link text-white float-right" href="#">Logout</a>
-                        </div>
-                    </footer>
-
-                </div>
+            <div class="col-6">
 
             </div>
 
-          </div>
-        
-      
+        </div>
+
+        <!--Make this a partial handlebars file (right chat)-->
+        <div class="row">
+
+            <div class="col-6">
+
+            </div>
+
+            <div class="col-6">
+                <div class="d-block bg-warning border rounded  mt-3 ">
+                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti
+                        facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero
+                        libero! Ipsum, iure tempora?</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="d-block bg-warning border rounded  mt-3 ">
+                    <p class="p-3 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non deleniti
+                        facere cum expedita repellat, numquam harum quae natus ipsa quia ut nisi quis eos nobis vero
+                        libero! Ipsum, iure tempora?</p>
+                </div>
+            </div>
+
+            <div class="col-6">
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="row chatbox" style="position:fixed; left: 0; bottom:0; width: 100%;">
+
+    <div class="col">
+
+        <div class="row " style="bottom: 0;">
+
+            <div class="col-3">
+
+            </div>
+            <div class="input-group mb-3  col-9 ">
+                <input id="chatMessage" type="text" class="form-control" placeholder=""
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <footer class="row bg-primary" style="width: 100%; bottom: 0; left: 0;">
+                <div class="logout text-white ml-5 ">
+                    <a id="logout" class="logout d-inline nav-link text-white float-right" href="#">Logout</a>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+</div>
