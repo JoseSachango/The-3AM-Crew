@@ -26,19 +26,22 @@ module.exports = function(app){
      
     })
 
+    //This endpoint should be changed to something more semantic like /api/isLoggedIn
     app.put("/api/validate", function(request, response) {
         console.log("logging the data sent in with the put request")
         console.log(request.body.userEmail)
         console.log(request.body.isLoggedIn)
 
-        db.User.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.userEmail}}).then(result => {
+        db.Current_user.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.userEmail}}).then(result => {
             console.log("this is the response returned from the update event")
             console.log(result)
+            response.json(result)
         }).catch(err => {
             console.log("this is the error returned from the update event")
             console.log(err)
+            response.status(404).send(err)
         })
-    console.log("the update to login values was made successfully")
+            console.log("the update to login values was made successfully")
         
     })
 

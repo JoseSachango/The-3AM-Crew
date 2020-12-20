@@ -20,20 +20,27 @@ $(function () {
      
             var html = ``
 
-            var userHtml =``
+            var userHtml = $(".users").html()
+            console.log(userHtml)
+
+            console.log
 
             var emailTo;
             //a client side websocket connection is made
             const socket = io();
 
+            //sending the email stored in localStorage to the server so we can render the users who are currently logged in
             socket.emit("email", localStorage.getItem("loginEmail"))
 
+            //recieving the email the server sends back to so we can render the users who are currently logged in
             socket.on("emailSentByServer", message => {
                 emailTo = message
 
-                userHtml += `<input class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`
+                //userHtml += `<input class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`
 
-                $(".users").html(userHtml)
+                //$(".users").html(userHtml)
+
+                $(".users").append(`<input id="${message}" class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`)
 
 
             })
@@ -41,14 +48,18 @@ $(function () {
             //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and console.logs it to the browser
             socket.on("message", message => {
 
+                console.log("This is a message sent by another user: ")
+                console.log(message)
+
+              
                 var recievedMessage = `
                 
                     <div class="row chatMessages">
         
                         <div class="col-6">
                             <div class="d-block bg-warning border rounded  mt-3 ">
-                                <h1>${emailTo}</h1>    
-                                <p class="p-3 text-white">${message}</p>
+                                <h6 class="ml-2 mt-2">${message.userEmailKey}</h6>    
+                                <p class="p-3 text-white">${message.userMessageKey}</p>
                             </div>
                         </div>
         
@@ -77,12 +88,19 @@ $(function () {
 
                 console.log("The send button was clicked")
 
+                //-----
                 var userMessage = $("#chatMessage").val().trim()
 
-                socket.emit("MessageFromTheClient", userMessage)
+                var userMessageObj = {
+                    userMessageKey: userMessage,
+                    userEmailKey: localStorage.getItem("loginEmail")
+                }
+
+                socket.emit("MessageFromTheClient", userMessageObj)
 
                 console.log("The message in the text area was: ");
-                console.log(userMessage);
+                console.log(userMessageObj);
+                //-----
 
                 var sentMessage = `
                 
@@ -94,6 +112,7 @@ $(function () {
         
                                     <div class="col-6">
                                         <div class="d-block bg-warning border rounded  mt-3 ">
+                                            <h6 class="ml-2 mt-2">${localStorage.getItem("loginEmail")}</h6>
                                             <p class="p-3 text-white">${userMessage}</p>
                                         </div>
                                     </div>

@@ -65,43 +65,58 @@ app.use(
     
         console.log("The server has registered a socket connection")
 
-    
+        var clientEmail;
         //when a user connects broadcast it only to the user
-        socket.emit("message","Welcome to Lexi")
+        //socket.emit("message","Welcome to Lexi")
     
         //when a user connects broadcast it to everyone but the user
-        socket.broadcast.emit("message","A user has joined the chat")
+        //socket.broadcast.emit("message","A user has joined the chat")
     
         //when a user disconnects
         socket.on("disconnect",()=>{
-            io.emit("message","A user has left the chat")
+            var leftChat = "A user has left the chat";
+            var email = clientEmail;
+
+            var leftChatObj = {
+                leftChatKey: leftChat,
+                emailKey: email
+            }
+
+            if(clientEmail){
+
+            }
+            io.emit("message",leftChatObj)
         })
 
         //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"
 
 
         //when the server recieves an emitter with the name "MessageFromTheClient" it broadcasts the message to everyone but the current client.
-        socket.on("MessageFromTheClient",function(userMessage){
+        socket.on("MessageFromTheClient",function(userMessageObj){
 
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
-            console.log(userMessage)
+            console.log(userMessageObj)
 
-            var chatRoomName = userMessage.split("&")
+            
 
-            if(chatRoomName[0]==="chatName"){
-                //create a room for private connection using sockets
-            }
+          
 
-            socket.broadcast.emit("message",userMessage)
+            socket.broadcast.emit("message",userMessageObj)
         });
 
+        
         socket.on("email",function(loginEmail){
 
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
             console.log(loginEmail)
-
+            clientEmail = loginEmail
             io.emit("emailSentByServer",loginEmail)
         });
+
+        socket.on("chatMessage",function(chatMessage){
+
+            //chatMessage should be an object with a message and the user's email
+        })
     
     })
 
