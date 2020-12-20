@@ -44,6 +44,7 @@ $(function () {
                 console.log(" Does $('.users').html().includes(message)?: ")
                 console.log($(".users").html().includes(message))
 
+                //constraint so that you don't see a double entry of a user in the user column
                 if($(".users").html().includes(message)){
                     console.log("User already posted")
                     return;
@@ -156,6 +157,8 @@ $(function () {
         
             $("#logout").on("click", function (event) {
                 var dataObj = {isLoggedIn: 0, email: localStorage.getItem("loginEmail")}
+
+                //make this endpoint more semantic
                 $.ajax("/api/userbye", {
                     type: "PUT",
                     data: dataObj
