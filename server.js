@@ -100,12 +100,12 @@ app.use(
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
             console.log(loginEmail)
 
-            //socket.bro.emit("emailSentByServer",loginEmail)
+            io.emit("emailSentByServer",loginEmail)
         });
     
     })
 
-db.sequelize.sync({force:true}).then(()=>{
+db.sequelize.sync().then(()=>{
 
     server.listen(PORT,function(){
         console.log("Server up and running. Listening on  http://localhost:"+PORT)

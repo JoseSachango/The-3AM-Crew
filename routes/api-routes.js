@@ -65,7 +65,7 @@ module.exports = function(app){
             }).then(()=>{
 
                 response.end()
-                
+
             }).catch(err=>{
                 response.status(404).send(err)
             })
@@ -115,7 +115,7 @@ module.exports = function(app){
         console.log("logging the data sent in with the put request")
         console.log(request.body.email)
         console.log(request.body.isLoggedIn)
-        db.User.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.email}}).then(result => {
+        db.Current_user.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.email}}).then(result => {
             console.log("this is the response returned from the update event")
             console.log(result)
             response.end()

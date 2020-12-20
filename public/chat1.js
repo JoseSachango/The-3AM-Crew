@@ -14,9 +14,14 @@ $(function () {
     // });
 
     //adding this usersDisplay conditional statement so that we don't have issues with asynchronus behavior
-    if($("#usersDisplay").val()==="Users:"){
-
+    console.log($("#usersDisplay").html().includes("Users"))
+    
+    if($("#usersDisplay").html().includes("Users")){
+     
             var html = ``
+
+            var userHtml =``
+
             var emailTo;
             //a client side websocket connection is made
             const socket = io();
@@ -25,6 +30,12 @@ $(function () {
 
             socket.on("emailSentByServer", message => {
                 emailTo = message
+
+                userHtml += `<input class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`
+
+                $(".users").html(userHtml)
+
+
             })
 
             //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and console.logs it to the browser
@@ -113,7 +124,7 @@ $(function () {
                 socket.emit("MessageFromTheClient", chatName)
             })
 
-            /*
+        
             $("#logout").on("click", function (event) {
                 var dataObj = {isLoggedIn: 0, email: localStorage.getItem("loginEmail")}
                 $.ajax("/api/userbye", {
@@ -130,7 +141,7 @@ $(function () {
                 
 
             })
-            */
+            
 
 
 
