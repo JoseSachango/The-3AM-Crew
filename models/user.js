@@ -12,21 +12,26 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
+
     //defaultValue of username was set to true before the change
+    /*
     username: {
       type: DataTypes.STRING,
       allowNull: true
-    },
+    },*/
+
     // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    }
+
+    /*
     isLoggedIn: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    }
+    }*/
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {

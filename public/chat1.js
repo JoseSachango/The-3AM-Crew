@@ -112,6 +112,8 @@ $(function () {
 
                 socket.emit("MessageFromTheClient", chatName)
             })
+
+            /*
             $("#logout").on("click", function (event) {
                 var dataObj = {isLoggedIn: 0, email: localStorage.getItem("loginEmail")}
                 $.ajax("/api/userbye", {
@@ -128,6 +130,7 @@ $(function () {
                 
 
             })
+            */
 
 
 
