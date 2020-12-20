@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "*batYA5kombat$",
-    "database": "threeam_db",
-    "host": "127.0.0.1",
+    "username": "q37efnbbbojqrbkv",
+    "password": "mtblmdu732lexf0b",
+    "database": "jwnkvoqlsagomypb",
+    "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "q37efnbbbojqrbkv",
+    "password": "mtblmdu732lexf0b",
+    "database": "jwnkvoqlsagomypb",
+    "host": "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
