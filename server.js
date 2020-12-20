@@ -92,19 +92,18 @@ app.use(
                 //create a room for private connection using sockets
             }
 
-
             socket.broadcast.emit("message",userMessage)
+        });
+
+        socket.on("email",function(loginEmail){
+
+            console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
+            console.log(loginEmail)
+
+            io.emit("emailSentByServer",loginEmail)
         });
     
     })
-
-
-
-
-
-
-
-
 
 db.sequelize.sync().then(()=>{
 

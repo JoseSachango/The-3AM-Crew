@@ -14,16 +14,18 @@ $(function () {
     // });
 
         var html = ``
-
+        var emailTo;
         //a client side websocket connection is made
         const socket = io();
 
+        socket.emit("email", localStorage.getItem("loginEmail"))
+
+        socket.on("emailSentByServer", message => {
+            emailTo = message
+        })
+
         //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and console.logs it to the browser
         socket.on("message", message => {
-
-
-
-
 
             var recievedMessage = `
             
@@ -31,6 +33,7 @@ $(function () {
     
                     <div class="col-6">
                         <div class="d-block bg-warning border rounded  mt-3 ">
+                            <h1>${emailTo}</h1>    
                             <p class="p-3 text-white">${message}</p>
                         </div>
                     </div>
