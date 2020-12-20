@@ -1,7 +1,7 @@
 const db = require("../models");
 
 const passport = require("../config/passport");
-const { response } = require("express");
+//const { response } = require("express");
 
 
 
@@ -17,6 +17,7 @@ module.exports = function(app){
         // err is whatever object represents what went wrong
     
         
+        
         response.json({
             email: request.user.email, 
             id: request.user.id
@@ -29,6 +30,7 @@ module.exports = function(app){
         console.log("logging the data sent in with the put request")
         console.log(request.body.userEmail)
         console.log(request.body.isLoggedIn)
+
         db.User.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.userEmail}}).then(result => {
             console.log("this is the response returned from the update event")
             console.log(result)
@@ -36,7 +38,7 @@ module.exports = function(app){
             console.log("this is the error returned from the update event")
             console.log(err)
         })
-console.log("the update to login values was made successfully")
+    console.log("the update to login values was made successfully")
         
     })
 

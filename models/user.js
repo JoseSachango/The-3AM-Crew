@@ -12,9 +12,10 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
+    //defaultValue of username was set to true before the change
     username: {
       type: DataTypes.STRING,
-      defaultValue: true
+      allowNull: true
     },
     // The password cannot be null
     password: {
@@ -41,10 +42,10 @@ module.exports = function(sequelize, DataTypes) {
     );
   });
 
-  
+  /*
   User.associate = function(db){
     User.hasMany(db.Current_user)
-  };
+  };*/
   
   return User;
 };

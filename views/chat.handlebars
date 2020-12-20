@@ -50,8 +50,8 @@
 
         </ul> --}}
 
-        <h5 class="mt-5 text-white"><img class="mr-4 ml-5"
-                src="https://img.icons8.com/color/30/000000/group.png" />Users: </h5>
+        <h5 id="usersDisplay" class="mt-5 text-white"><img class="mr-4 ml-5"
+                src="https://img.icons8.com/color/30/000000/group.png" />Users:</h5>
 
         <!--You can either chat in a group or chat to an individual user who's online-->
         <ul class="users">
@@ -64,9 +64,9 @@
 
 
             {{#each User }}
-            {{#if dataValues.isLoggedIn}}
-            {{> users}}
-            {{/if}}
+                {{#if dataValues.isLoggedIn}}
+                    {{> users}}
+                {{/if}}
             {{/each}}
 
         </ul>
@@ -173,3 +173,5 @@
     </div>
 
 </div>
+
+ <!--<script src="/chat1.js"></script>-->

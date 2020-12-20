@@ -7,8 +7,10 @@ $(function () {
 
         var loginEmail = $("#loginEmail").val().trim()
         var loginPassword = $("#loginPassword").val().trim()
+        
 
-        localStorage.setItem("loginEmail", loginEmail)
+        localStorage.clear();
+        localStorage.setItem("loginEmail", loginEmail);
 
         console.log(loginEmail)
         console.log(loginPassword)

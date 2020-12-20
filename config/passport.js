@@ -51,7 +51,9 @@ passport.use(
 
         console.log("done(null, dbUser): ")
         console.log(done(null, dbUser))
-      });
+      }).catch(err=>{
+        console.log(err)
+      });//add a .catch() to see if it fixed an issue with "unhandled promises" show in the terminal
     }
   )
 );

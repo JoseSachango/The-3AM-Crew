@@ -100,7 +100,7 @@ app.use(
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
             console.log(loginEmail)
 
-            io.emit("emailSentByServer",loginEmail)
+            //socket.bro.emit("emailSentByServer",loginEmail)
         });
     
     })

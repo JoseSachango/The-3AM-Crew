@@ -9,7 +9,7 @@ module.exports = function(app){
     app.get("/",function(request,response){
 
         response.render("index")
-    })
+    });
 
 
 
@@ -31,6 +31,10 @@ module.exports = function(app){
             }
 
             response.render("chat",hbsObject)
+        }).catch(err=>{
+            
+            //added this error handling to see if it fixed a problem with the login page
+            response.status(404).send(err)
         })
         
     });
