@@ -16,7 +16,7 @@ module.exports = function(app){
     app.get("/chat",function(request,response){
 
         //This part of the code should find all users in the current user table. Create a seperate table for this
-        db.User.findAll({
+        db.Current_user.findAll({
 
         }).then(dbData=>{
 
