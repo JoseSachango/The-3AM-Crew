@@ -118,11 +118,14 @@ module.exports = function(app){
         console.log("logging the data sent in with the put request")
         console.log(request.body.email)
         console.log(request.body.isLoggedIn)
-        
+
         db.Current_user.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.email}}).then(result => {
             console.log("this is the response returned from the update event")
             console.log(result)
-            response.end()
+            console.log("This is the email that was sent in with the body during the logout put request")
+            console.log( request.body.email)
+            console.log(request.body.isLoggedIn)
+            response.json(result)
         }).catch(err => {
             console.log("this is the error returned from the update event")
             console.log(err)

@@ -117,6 +117,12 @@ app.use(
 
             //chatMessage should be an object with a message and the user's email
         })
+
+
+        socket.on("loggedOut",function(userEmail){
+
+            socket.broadcast.emit("loggedOutServerReturn",userEmail);
+        })
     
     })
 

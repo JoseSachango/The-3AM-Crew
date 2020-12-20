@@ -50,7 +50,7 @@ $(function () {
                     return;
                 }else{
 
-                    $(".users").append(`<input id="${message}" class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`)
+                    $(".users").append(`<input class="btn btn-secondary w-75 mb-2 ${message}" type="submit" value="${message}"></input>`)
                 }
 
 
@@ -146,13 +146,14 @@ $(function () {
             //The server will be listening for all messages, but when the message is "Chatroomname *Name*" it
             //uses .split() to grab the *Name* from the string and creates a chat room with that name
 
+            /*
             $(".usersActive").on("click", function (event) {
 
                 var userId = event.target.gettAttribute("id")
                 var chatName = `chatName&${userId}`
 
                 socket.emit("MessageFromTheClient", chatName)
-            })
+            })*/
 
         
             $("#logout").on("click", function (event) {
@@ -163,15 +164,31 @@ $(function () {
                     type: "PUT",
                     data: dataObj
                 }).then((results2) => {
-                    localStorage.clear();
+                    
                     console.log("ajax call was made successfully")
                     console.log(results2)
+
+                    //going to need to emit a socket message here that tells the server to remove the user that just logged out
+                    var user = localStorage.getItem("loginEmail");
+                    socket.emit("loggedOut",user);
+                    localStorage.clear();
                     window.location.replace("/");
                 }).catch(err => {
                     console.log(err)
                 })
                 
 
+            })
+
+
+
+            socket.on("loggedOutServerReturn",function(userEmail){
+                console.log("This is the element we want to remove: ")
+                var element = $(".Diego").html()
+                console.log(element)
+                //console.log(element.html())
+                console.log(userEmail)
+                //$(`#${userEmail}`).remove()
             })
             
 
