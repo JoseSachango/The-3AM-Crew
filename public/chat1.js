@@ -14,7 +14,9 @@ $(function () {
     // });
 
     //adding this usersDisplay conditional statement so that we don't have issues with asynchronus behavior
-    console.log($("#usersDisplay").html().includes("Users"))
+    
+    //console.log($("#usersDisplay").html())
+   //console.log($("#usersDisplay").html().includes("Users"))
     
     if($("#usersDisplay").html().includes("Users")){
      
@@ -23,7 +25,7 @@ $(function () {
             var userHtml = $(".users").html()
             console.log(userHtml)
 
-            console.log
+    
 
             var emailTo;
             //a client side websocket connection is made
@@ -39,8 +41,16 @@ $(function () {
                 //userHtml += `<input class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`
 
                 //$(".users").html(userHtml)
+                console.log(" Does $('.users').html().includes(message)?: ")
+                console.log($(".users").html().includes(message))
 
-                $(".users").append(`<input id="${message}" class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`)
+                if($(".users").html().includes(message)){
+                    console.log("User already posted")
+                    return;
+                }else{
+
+                    $(".users").append(`<input id="${message}" class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`)
+                }
 
 
             })
