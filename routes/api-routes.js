@@ -22,6 +22,7 @@ module.exports = function(app){
             email: request.user.email, 
             id: request.user.id,
             username: request.user.username
+            
           });
        
      
@@ -44,7 +45,11 @@ module.exports = function(app){
         })
             console.log("the update to login values was made successfully")
         
-    })
+    });
+
+
+
+
 
     app.post("/api/register",function(request,response){
 
@@ -57,7 +62,7 @@ module.exports = function(app){
 
         db.User.create({
             email: request.body.email,
-            //username: request.body.username,
+            username: request.body.username,
             password: request.body.password
         }).then(()=>{
 
@@ -84,7 +89,7 @@ module.exports = function(app){
 
     });
 
-
+    /*
     app.post("/api/currentUser",function(request,response){
 
         //have some functionality where if the user is already registered and he tries to register again, he will be told to log in.
@@ -109,7 +114,7 @@ module.exports = function(app){
         });
 
 
-    });
+    });*/
 
 
     //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"

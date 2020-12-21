@@ -15,10 +15,10 @@ $(function () {
 
     //adding this usersDisplay conditional statement so that we don't have issues with asynchronus behavior
 
-    //console.log($("#usersDisplay").html())
-    //console.log($("#usersDisplay").html().includes("Users"))
+    console.log($("#usersDisplay").html())
+   // console.log($("#usersDisplay").html().includes("Users"))
 
-    if ($("#usersDisplay").html().includes("Users")) {
+    if ($("#usersDisplay").html()!=undefined) {
 
         var html = ``
 
@@ -27,7 +27,7 @@ $(function () {
 
 
 
-        var emailTo;
+        
         //a client side websocket connection is made
         const socket = io();
 
@@ -90,7 +90,7 @@ $(function () {
             console.log(message)
 
 
-            $(".chatMessages").scrollTop()
+           // $(".chatMessages").scrollTop()
 
         });
         //------------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ $(function () {
 
             $("#chatMessage").val("")
 
-            $(".chatMessages").scrollTop()
+            //$(".chatMessages").scrollTop()
         })
         //-------------------------------------------------------------------------------------------
 
@@ -157,7 +157,7 @@ $(function () {
 
 
         $("#logout").on("click", function (event) {
-            var dataObj = { isLoggedIn: 0, username: localStorage.getItem("username") }
+            var dataObj = { isLoggedIn: 0, email: localStorage.getItem("loginEmail") }
 
             //make this endpoint more semantic
             $.ajax("/api/userbye", {
@@ -171,9 +171,10 @@ $(function () {
                 //going to need to emit a socket message here that tells the server to remove the user that just logged out
                 var user = localStorage.getItem("username");
 
-                $(`#${user}`).clear()
+               
                 
                 socket.emit("loggedOut", user);
+
                 localStorage.clear();
                 window.location.replace("/");
             }).catch(err => {
@@ -185,13 +186,13 @@ $(function () {
 
 
 
-        socket.on("loggedOutServerReturn", function (userEmail) {
+        socket.on("loggedOutServerReturn", function (username) {
             console.log("This is the element we want to remove: ")
-            var element = $(".Diego").html()
+            var element = $(`#${username}`).html()
             console.log(element)
-            //console.log(element.html())
-            console.log(userEmail)
-            //$(`#${userEmail}`).remove()
+            
+            
+            $(`#${username}`).remove()
         })
 
 

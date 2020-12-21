@@ -7,10 +7,10 @@ $(function () {
 
         var loginEmail = $("#loginEmail").val().trim()
         var loginPassword = $("#loginPassword").val().trim()
-        //var localStorageValue = loginEmail.split("@")[0]
+     
 
         localStorage.clear();
-        //localStorage.setItem("loginEmail", loginEmail);
+      
 
         console.log(loginEmail)
         console.log(loginPassword)
@@ -32,6 +32,7 @@ $(function () {
         }).then((result) => {
             var newObj = { isLoggedIn: 1, userEmail: result.email }
 
+            //---------------------------------
             $.ajax("/api/validate", {
                 type: "PUT",
                 data: newObj
@@ -41,12 +42,14 @@ $(function () {
             }).catch(err => {
                 console.log(err)
             })
+            //------------------------------
 
             console.log("This is the result we got from our database: ")
             console.log(result)
 
             localStorage.setItem("username",result.username)
             localStorage.setItem("id",result.id)
+            localStorage.setItem("loginEmail",result.email)
 
 
 
