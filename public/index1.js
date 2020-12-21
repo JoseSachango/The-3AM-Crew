@@ -131,6 +131,13 @@ $(function () {
             data: registerCredentials
         }).then((result) => {
 
+            console.log("This is the result I get back after I register: ")
+            console.log(result)
+
+            localStorage.setItem("username",result.username)
+            localStorage.setItem("id",result.id)
+            localStorage.setItem("loginEmail",result.email)
+
             window.location.replace("/chat");
 
         }).catch((err) => {

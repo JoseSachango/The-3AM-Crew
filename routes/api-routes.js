@@ -71,9 +71,9 @@ module.exports = function(app){
                 username: request.body.username,
                 password: request.body.password
 
-            }).then(()=>{
+            }).then((result)=>{
 
-                response.end()
+                response.json(result)
 
             }).catch(err=>{
                 response.status(404).send(err)
