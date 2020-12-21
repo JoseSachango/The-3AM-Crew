@@ -138,6 +138,23 @@ $(function () {
             localStorage.setItem("id",result.id)
             localStorage.setItem("loginEmail",result.email)
 
+
+            var newObj = { isLoggedIn: 1, userEmail: result.email }
+
+            //---------------------------------
+            $.ajax("/api/validate", {
+                type: "PUT",
+                data: newObj
+            }).then((results2) => {
+                console.log("ajax call was made successfully")
+                console.log(results2)
+            }).catch(err => {
+                console.log(err)
+            })
+            //------------------------------
+
+
+
             window.location.replace("/chat");
 
         }).catch((err) => {
