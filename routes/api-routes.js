@@ -20,7 +20,8 @@ module.exports = function(app){
         
         response.json({
             email: request.user.email, 
-            id: request.user.id
+            id: request.user.id,
+            username: request.user.username
           });
        
      

@@ -10,7 +10,7 @@ $(function () {
         //var localStorageValue = loginEmail.split("@")[0]
 
         localStorage.clear();
-        localStorage.setItem("loginEmail", loginEmail);
+        //localStorage.setItem("loginEmail", loginEmail);
 
         console.log(loginEmail)
         console.log(loginPassword)
@@ -44,6 +44,11 @@ $(function () {
 
             console.log("This is the result we got from our database: ")
             console.log(result)
+
+            localStorage.setItem("username",result.username)
+            localStorage.setItem("id",result.id)
+
+
 
             //if the user is successfully authenticated then make a post request to the /api/currentUser
             //endpoint and use sequelize .create() method to add the users information to the table.
