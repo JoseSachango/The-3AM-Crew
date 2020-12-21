@@ -105,12 +105,12 @@ app.use(
         });
 
         
-        socket.on("email",function(loginEmail){
+        socket.on("username",function(username){
 
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
-            console.log(loginEmail)
-            clientEmail = loginEmail
-            io.emit("emailSentByServer",loginEmail)
+            console.log(username)
+            
+            io.emit("usernameSentByServer",username)
         });
 
         socket.on("chatMessage",function(chatMessage){
