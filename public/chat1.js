@@ -170,6 +170,9 @@ $(function () {
 
                 //going to need to emit a socket message here that tells the server to remove the user that just logged out
                 var user = localStorage.getItem("username");
+
+                $(`#${user}`).clear()
+                
                 socket.emit("loggedOut", user);
                 localStorage.clear();
                 window.location.replace("/");
