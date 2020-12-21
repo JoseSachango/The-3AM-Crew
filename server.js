@@ -72,7 +72,7 @@ app.use(
         //when a user connects broadcast it to everyone but the user
         //socket.broadcast.emit("message","A user has joined the chat")
     
-        //when a user disconnects
+        //when a user disconnects -> dont need to update this
         socket.on("disconnect",()=>{
             var leftChat = "A user has left the chat";
             var email = clientEmail;
@@ -85,8 +85,10 @@ app.use(
             if(clientEmail){
 
             }
-           io.emit("onLeave",leftChatObj)
+           //io.emit("onLeave",leftChatObj)
         })
+        //------------------------------
+
 
         //When a socket gets created save it's Id. Send the id to the front end and render it as a user in the column to the left under "Users"
 
@@ -104,14 +106,18 @@ app.use(
             socket.broadcast.emit("message",userMessageObj)
         });
 
+
+
         
-        socket.on("email",function(loginEmail){
+        socket.on("username",function(username){
 
             console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
-            console.log(loginEmail)
-            clientEmail = loginEmail
-            io.emit("emailSentByServer",loginEmail)
+            console.log(username)
+            
+            io.emit("usernameSentByServer",username)
         });
+
+
 
         socket.on("chatMessage",function(chatMessage){
 
@@ -119,12 +125,12 @@ app.use(
         })
 
 
-        socket.on("loggedOut",function(userEmail){
+        socket.on("loggedOut",function(username){
 
-            socket.broadcast.emit("loggedOutServerReturn",userEmail);
+            socket.broadcast.emit("loggedOutServerReturn",username);
         })
     
-    })
+    });
 
 db.sequelize.sync().then(()=>{
 

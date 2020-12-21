@@ -14,11 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     //defaultValue of username was set to true before the change
-    /*
+    
     username: {
       type: DataTypes.STRING,
       allowNull: true
-    },*/
+    },
 
     // The password cannot be null
     password: {
