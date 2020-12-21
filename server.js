@@ -132,7 +132,7 @@ app.use(
     
     });
 
-db.sequelize.sync({force:true}).then(()=>{
+db.sequelize.sync().then(()=>{
 
     server.listen(PORT,function(){
         console.log("Server up and running. Listening on  http://localhost:"+PORT)
