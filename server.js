@@ -132,7 +132,7 @@ io.on("connection", (socket) => {
 
 });
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force:true}).then(() => {
 
     server.listen(PORT, function () {
         console.log("Server up and running. Listening on  http://localhost:" + PORT)
