@@ -125,25 +125,45 @@
             <div class="col-3">
 
             </div>
-            <div class="input-group mb-3  col-9 ">
-                <input id="chatMessage" type="text" class="form-control" placeholder=""
-                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="sendButton">Send</button>
-                </div>
-            </div>
 
-        </div>
+            <form id="chatForum" class="form-inline  mb-3  col-9 "><!--Something I added to make the forum work-->
 
-        <div class="row">
+                <div class="input-group row w-100"><!--Something I added to make the form work-->
+                
+                     <!--<div class="input-group mb-3  col-9 ">
+                     </div>-->
+                         
+                        <input id="chatMessage" type="text" class="form-control col-11 ml-5" placeholder=""
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                        <!--closing div for class="input-group mb-3  col-9 goes here -->
+
+                    <div class="input-group-append ml-0 col-1">
+                        <button class="btn btn-outline-secondary" type="submit" id="sendButton">Send</button>
+                    </div>
+
 
             <footer class="row bg-primary" style="width: 100%; bottom: 0; left: 0;">
                 <div class="logout text-white ml-5 ">
                     <i class="fas fa-cogs fa-3x"></i>
+
                 </div>
-            </footer>
+
+            </form>
 
         </div>
+
+       
+            <div class="row">
+
+                <footer class="row bg-primary" style="width: 100%; bottom: 0; left: 0;">
+                    <div class="logout text-white ml-5 ">
+                        <a id="logout" class="logout d-inline nav-link text-white float-right" href="#">Logout</a>
+                    </div>
+                </footer>
+
+            </div>
+       
 
     </div>
 
