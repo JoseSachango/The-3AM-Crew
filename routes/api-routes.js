@@ -64,7 +64,9 @@ module.exports = function(app){
             email: request.body.email,
             username: request.body.username,
             password: request.body.password
-        }).then(()=>{
+        }).then((result)=>{
+
+            response.json(result)
 
             db.Current_user.create({
                 email: request.body.email,
@@ -73,7 +75,8 @@ module.exports = function(app){
 
             }).then((result)=>{
 
-                response.json(result)
+                //response.json(result)\
+                response.end()
 
             }).catch(err=>{
                 response.status(404).send(err)
