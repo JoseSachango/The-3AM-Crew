@@ -157,7 +157,7 @@ $(function () {
         })*/
 
 
-        $("#logout").on("click", function (event) {
+        $(".logout").on("click", function (event) {
             var dataObj = { isLoggedIn: 0, email: localStorage.getItem("loginEmail") }
 
             //make this endpoint more semantic
