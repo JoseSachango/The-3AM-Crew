@@ -95,7 +95,10 @@ $(function () {
         });
         //------------------------------------------------------------------------------------
 
-        $("#sendButton").on("click", function (event) {
+        //$("#sendButton").on("click", function (event) {
+        $("#chatForum").on("submit", function (event) {
+
+            event.preventDefault();
 
             console.log("The send button was clicked")
 
@@ -139,7 +142,7 @@ $(function () {
             $("#chatMessage").val("")
 
             //$(".chatMessages").scrollTop()
-        })
+        });
         //-------------------------------------------------------------------------------------------
 
         //When you click a user on the left column it activates a socket.emit("message","*chat room name*")
