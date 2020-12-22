@@ -29,7 +29,7 @@ $(function () {
 
             var recievedMessage = `
             
-                <div class="row chatMessages">
+                <div class="row chatMessageRow">
     
                     <div class="col-6">
                         <div class="d-block bg-warning border rounded  mt-3 ">
@@ -72,7 +72,7 @@ $(function () {
 
             var sentMessage = `
             
-                <div class="row">
+                <div class="row chatMessageRow">
     
                                 <div class="col-6">
                                 
@@ -93,10 +93,19 @@ $(function () {
 
             $("#currentChat").html(html)
             $("#chatMessage").val("")
-            document.querySelector("#currentChat").scrollTo({
-                bottom: 0,
-                behavior: 'smooth'
-            })
+            $("#currentChat").html(html)
+            $("#chatMessage").val("")
+            // document.querySelector(".chatMessageRow").scrollTo({
+                // Where you have nested elements, the document might not scroll. In this case, you need to target the element that scrolls and use it's scroll height instead.
+                // window.scrollTo(0,document.querySelector(".currentChat").scrollHeight);
+            // bottom: 0,
+            // behavior: 'smooth'
+            // })
+            document.querySelector(".chatMessageRow").scrollIntoView(true)
+            // bottom: 0,
+            // behavior: 'smooth'
+            // })
+            
         })
         //-------------------------------------------------------------------------------------------
 
