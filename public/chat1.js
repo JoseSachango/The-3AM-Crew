@@ -54,7 +54,17 @@ $(function () {
             }
 
 
-        })
+        });
+
+        /*
+        function scrollFunction(){
+
+            window.scrollTo(0, document.querySelectorAll(".chatMessages")[document.querySelectorAll(".chatMessages").length-1].scrollBottom
+            );
+
+            console.log("This is the value of line 93: ")
+            console.log(document.querySelectorAll(".chatMessages")[document.querySelectorAll(".chatMessages").length-1])
+        }*/
 
         //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and console.logs it to the browser
         socket.on("message", message => {
@@ -90,7 +100,7 @@ $(function () {
             console.log(message)
 
 
-           // $(".chatMessages").scrollTop()
+          //scrollFunction()
 
         });
         //------------------------------------------------------------------------------------
@@ -141,7 +151,9 @@ $(function () {
 
             $("#chatMessage").val("")
 
-            //$(".chatMessages").scrollTop()
+           //scrollFunction();
+
+         
         });
         //-------------------------------------------------------------------------------------------
 
@@ -182,6 +194,11 @@ $(function () {
                 console.log(err)
             })
 
+
+        })
+
+
+        $(".delete").on("click",function(event){
 
         })
 
