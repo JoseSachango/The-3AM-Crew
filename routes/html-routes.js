@@ -20,11 +20,11 @@ module.exports = function(app){
 
         }).then(dbData=>{
 
-            console.log("This is the data that was returned by the findAll query: ")
-            console.log(dbData)
+            // ("This is the data that was returned by the findAll query: ")
+            // (dbData)
 
-            console.log("More specific data: ")
-            console.log(dbData[0].dataValues.id)
+            // ("More specific data: ")
+            // (dbData[0].dataValues.id)
 
             var hbsObject = {
                 User: dbData

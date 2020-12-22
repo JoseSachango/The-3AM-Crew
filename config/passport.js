@@ -19,13 +19,13 @@ passport.use(
         }
       }).then(dbUser => {
         // If there's no user with the given email
-        console.log("This is the one user returned from the database after the .findOne() method was run on the Users table: ")
-        console.log(dbUser)
+        // ("This is the one user returned from the database after the .findOne() method was run on the Users table: ")
+        // (dbUser)
 
         if (!dbUser) {
 
-          console.log("The user didn't match the one in the database. The user is: ")
-          console.log(dbUser)
+          // ("The user didn't match the one in the database. The user is: ")
+          // (dbUser)
 
           return done(null, false, {
             message: "Incorrect email."
@@ -34,11 +34,11 @@ passport.use(
         // If there is a user with the given email, but the password the user gives us is incorrect
         else if (!dbUser.validPassword(password)) {
 
-          console.log("The password didn't match the one in the database: ")
-          console.log("The password currently being passed in is: ")
-          console.log(password)
-          console.log("dbUser.validPassword(password) is: ")
-          console.log(dbUser.validPassword(password))
+          // ("The password didn't match the one in the database: ")
+          // ("The password currently being passed in is: ")
+          // (password)
+          // ("dbUser.validPassword(password) is: ")
+          // (dbUser.validPassword(password))
 
 
           return done(null, false, {
@@ -49,10 +49,10 @@ passport.use(
 
         return done(null, dbUser);
 
-        console.log("done(null, dbUser): ")
-        console.log(done(null, dbUser))
+        // ("done(null, dbUser): ")
+        // (done(null, dbUser))
       }).catch(err=>{
-        console.log(err)
+        // (err)
       });//add a .catch() to see if it fixed an issue with "unhandled promises" show in the terminal
     }
   )

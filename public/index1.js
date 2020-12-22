@@ -12,8 +12,8 @@ $(function () {
         localStorage.clear();
       
 
-        console.log(loginEmail)
-        console.log(loginPassword)
+        // (loginEmail)
+        // (loginPassword)
 
         var loginCredentials = {
             email: loginEmail,
@@ -37,15 +37,15 @@ $(function () {
                 type: "PUT",
                 data: newObj
             }).then((results2) => {
-                console.log("ajax call was made successfully")
-                console.log(results2)
+                // ("ajax call was made successfully")
+                // (results2)
             }).catch(err => {
-                console.log(err)
+                // (err)
             })
             //------------------------------
 
-            console.log("This is the result we got from our database: ")
-            console.log(result)
+            // ("This is the result we got from our database: ")
+            // (result)
 
             localStorage.setItem("username",result.username)
             localStorage.setItem("id",result.id)
@@ -66,12 +66,12 @@ $(function () {
             }).then((result2)=>{
 
                 //switching to the chat window if the response comes back with no errors
-                console.log("A current user has been added to the Current_users table")
+                // ("A current user has been added to the Current_users table")
                 window.location.replace("/chat");
 
             }).catch(err=>{
-                console.log("An error was caught trying to create an entry in the current users table.")
-                console.log(err)
+                // ("An error was caught trying to create an entry in the current users table.")
+                // (err)
             })*/
 
 
@@ -80,8 +80,8 @@ $(function () {
 
         }).catch((err) => {
 
-            console.log("This is the err we got from our post attempt: ")
-            console.log(err)
+            // ("This is the err we got from our post attempt: ")
+            // (err)
 
             //Alert that tells users to register because they're not in the database
             alert("You don't currently have an account. Please register to continue using Lexi")
@@ -108,9 +108,9 @@ $(function () {
         var registerUserName = $("#registerUserName").val().trim()
         var registerPassword = $("#registerPassword").val().trim()
 
-        console.log(registerEmail)
-        console.log(registerUserName)
-        console.log(registerPassword)
+        // (registerEmail)
+        // (registerUserName)
+        // (registerPassword)
 
         //have to delete username functionality because it's not compatible with passport
         var registerCredentials = {
@@ -131,8 +131,8 @@ $(function () {
             data: registerCredentials
         }).then((result) => {
 
-            console.log("This is the result I get back after I register: ")
-            console.log(result)
+            // ("This is the result I get back after I register: ")
+            // (result)
 
             localStorage.setItem("username",result.username)
             localStorage.setItem("id",result.id)
@@ -146,10 +146,10 @@ $(function () {
                 type: "PUT",
                 data: newObj
             }).then((results2) => {
-                console.log("ajax call was made successfully")
-                console.log(results2)
+                // ("ajax call was made successfully")
+                // (results2)
             }).catch(err => {
-                console.log(err)
+                // (err)
             })
             //------------------------------
 
@@ -159,7 +159,7 @@ $(function () {
 
         }).catch((err) => {
 
-            console.log(err)
+            // (err)
 
 
         })

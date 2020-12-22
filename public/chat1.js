@@ -2,28 +2,19 @@
 //Function that runs as soon as the document is loaded. Similar to $(document).ready()
 $(function () {
 
-    // $("#logout").on("submit", function (event) {
-
-    //     event.preventDefault()
-    //     var loginEmail = $("#loginEmail").val().trim()
-    //     $("#logout").on("click", function (event) {
-    //     console.log("show if logout");
-
-    //     })
-
-    // });
+    
 
     //adding this usersDisplay conditional statement so that we don't have issues with asynchronus behavior
 
-    console.log($("#usersDisplay").html())
-   // console.log($("#usersDisplay").html().includes("Users"))
+    // ($("#usersDisplay").html())
+   // // ($("#usersDisplay").html().includes("Users"))
 
     if ($("#usersDisplay").html()!=undefined) {
 
         var html = ``
 
         var userHtml = $(".users").html()
-        console.log(userHtml)
+        // (userHtml)
 
 
 
@@ -41,12 +32,12 @@ $(function () {
             //userHtml += `<input class="btn btn-secondary w-75 mb-2" type="submit" value="${message}"></input>`
 
             //$(".users").html(userHtml)
-            console.log(" Does $('.users').html().includes(message)?: ")
-            console.log($(".users").html().includes(username))
+            // (" Does $('.users').html().includes(message)?: ")
+            // ($(".users").html().includes(username))
 
             //constraint so that you don't see a double entry of a user in the user column
             if ($(".users").html().includes(username)) {
-                console.log("User already posted")
+                // ("User already posted")
                 return;
             } else {
 
@@ -56,21 +47,21 @@ $(function () {
 
         });
 
-        /*
+        /* --> This is a function we will use later to experiment with the automatic scroll of the page
         function scrollFunction(){
 
             window.scrollTo(0, document.querySelectorAll(".chatMessages")[document.querySelectorAll(".chatMessages").length-1].scrollBottom
             );
 
-            console.log("This is the value of line 93: ")
-            console.log(document.querySelectorAll(".chatMessages")[document.querySelectorAll(".chatMessages").length-1])
+            // ("This is the value of line 93: ")
+            // (document.querySelectorAll(".chatMessages")[document.querySelectorAll(".chatMessages").length-1])
         }*/
 
-        //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and console.logs it to the browser
+        //when the socket connection on this client recieves message titled "message" from the server it passes the message to a callback function and // s it to the browser
         socket.on("message", message => {
 
-            console.log("This is a message sent by another user: ")
-            console.log(message)
+            // ("This is a message sent by another user: ")
+            // (message)
 
 
             var recievedMessage = `
@@ -97,7 +88,7 @@ $(function () {
 
             $("#currentChat").html(html)
 
-            console.log(message)
+            // (message)
 
 
           //scrollFunction()
@@ -110,9 +101,9 @@ $(function () {
 
             event.preventDefault();
 
-            console.log("The send button was clicked")
+            // ("The send button was clicked")
 
-            //-----
+            
             var userMessage = $("#chatMessage").val().trim()
 
             var userMessageObj = {
@@ -122,9 +113,9 @@ $(function () {
 
             socket.emit("MessageFromTheClient", userMessageObj)
 
-            console.log("The message in the text area was: ");
-            console.log(userMessageObj);
-            //-----
+            // ("The message in the text area was: ");
+            // (userMessageObj);
+           
 
             var sentMessage = `
                 
@@ -178,8 +169,8 @@ $(function () {
                 data: dataObj
             }).then((results2) => {
 
-                console.log("ajax call was made successfully")
-                console.log(results2)
+                // ("ajax call was made successfully")
+                // (results2)
 
                 //going to need to emit a socket message here that tells the server to remove the user that just logged out
                 var user = localStorage.getItem("username");
@@ -191,7 +182,7 @@ $(function () {
                 localStorage.clear();
                 window.location.replace("/");
             }).catch(err => {
-                console.log(err)
+                // (err)
             })
 
 
@@ -205,9 +196,9 @@ $(function () {
 
 
         socket.on("loggedOutServerReturn", function (username) {
-            console.log("This is the element we want to remove: ")
+            // ("This is the element we want to remove: ")
             var element = $(`#${username}`).html()
-            console.log(element)
+            // (element)
             
             
             $(`#${username}`).remove()

@@ -30,20 +30,20 @@ module.exports = function(app){
 
     //This endpoint should be changed to something more semantic like /api/isLoggedIn
     app.put("/api/validate", function(request, response) {
-        console.log("logging the data sent in with the put request")
-        console.log(request.body.userEmail)
-        console.log(request.body.isLoggedIn)
+        // ("logging the data sent in with the put request")
+        // (request.body.userEmail)
+        // (request.body.isLoggedIn)
 
         db.Current_user.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.userEmail}}).then(result => {
-            console.log("this is the response returned from the update event")
-            console.log(result)
+            // ("this is the response returned from the update event")
+            // (result)
             response.json(result)
         }).catch(err => {
-            console.log("this is the error returned from the update event")
-            console.log(err)
+            // ("this is the error returned from the update event")
+            // (err)
             response.status(404).send(err)
         })
-            console.log("the update to login values was made successfully")
+            // ("the update to login values was made successfully")
         
     });
 
@@ -54,10 +54,10 @@ module.exports = function(app){
     app.post("/api/register",function(request,response){
 
         //have some functionality where if the user is already registered and he tries to register again, he will be told to log in.
-        console.log("Email and password sent from the post request are the following: ")
-        console.log(request.body.email)
-        console.log(request.body.username)
-        console.log(request.body.password)
+        // ("Email and password sent from the post request are the following: ")
+        // (request.body.email)
+        // (request.body.username)
+        // (request.body.password)
 
 
         db.User.create({
@@ -96,8 +96,8 @@ module.exports = function(app){
     app.post("/api/currentUser",function(request,response){
 
         //have some functionality where if the user is already registered and he tries to register again, he will be told to log in.
-        console.log("Email sent from the post request is the following: ")
-        console.log(request.body.email)
+        // ("Email sent from the post request is the following: ")
+        // (request.body.email)
        
 
 
@@ -106,13 +106,13 @@ module.exports = function(app){
             includes: [db.User]
         }).then((result)=>{
 
-            console.log("A current user has been added to the Current_users table")
-            console.log(result)
+            // ("A current user has been added to the Current_users table")
+            // (result)
             response.end();
 
         }).catch(err=>{
 
-            console.log("Couldn't create an entry for a current user.")
+            // ("Couldn't create an entry for a current user.")
             response.status(404).send(err)
         });
 
@@ -124,20 +124,20 @@ module.exports = function(app){
     
     app.put("/api/userbye", function(request, response) {
     
-        console.log("logging the data sent in with the put request")
-        console.log(request.body.email)
-        console.log(request.body.isLoggedIn)
+        // ("logging the data sent in with the put request")
+        // (request.body.email)
+        // (request.body.isLoggedIn)
 
         db.Current_user.update({isLoggedIn: request.body.isLoggedIn}, {where: {email: request.body.email}}).then(result => {
-            console.log("this is the response returned from the update event")
-            console.log(result)
-            console.log("This is the email that was sent in with the body during the logout put request")
-            console.log( request.body.email)
-            console.log(request.body.isLoggedIn)
+            // ("this is the response returned from the update event")
+            // (result)
+            // ("This is the email that was sent in with the body during the logout put request")
+            // ( request.body.email)
+            // (request.body.isLoggedIn)
             response.json(result)
         }).catch(err => {
-            console.log("this is the error returned from the update event")
-            console.log(err)
+            // ("this is the error returned from the update event")
+            // (err)
         })
 })
 }

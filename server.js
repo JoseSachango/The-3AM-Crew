@@ -63,7 +63,7 @@ require("./routes/api-routes.js")(app)
 // the argument socket is the particular client that connected.
 io.on("connection", (socket) => {
 
-    console.log("The server has registered a socket connection")
+    // ("The server has registered a socket connection")
 
     var clientEmail;
     //when a user connects broadcast it only to the user
@@ -85,7 +85,7 @@ io.on("connection", (socket) => {
         if (clientEmail) {
 
         }
-        //io.emit("onLeave",leftChatObj)
+        
     })
     //------------------------------
 
@@ -96,8 +96,8 @@ io.on("connection", (socket) => {
     //when the server recieves an emitter with the name "MessageFromTheClient" it broadcasts the message to everyone but the current client.
     socket.on("MessageFromTheClient", function (userMessageObj) {
 
-        console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
-        console.log(userMessageObj)
+        // ("This is the userMessage that's passed in as an argument to the socket.on listener: ")
+        // (userMessageObj)
 
 
 
@@ -111,8 +111,8 @@ io.on("connection", (socket) => {
 
     socket.on("username", function (username) {
 
-        console.log("This is the userMessage that's passed in as an argument to the socket.on listener: ")
-        console.log(username)
+        // ("This is the userMessage that's passed in as an argument to the socket.on listener: ")
+        // (username)
 
         io.emit("usernameSentByServer", username)
     });
@@ -132,10 +132,10 @@ io.on("connection", (socket) => {
 
 });
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync().then(() => {
 
     server.listen(PORT, function () {
-        console.log("Server up and running. Listening on  http://localhost:" + PORT)
+        // ("Server up and running. Listening on  http://localhost:" + PORT)
     });
 
 });
