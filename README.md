@@ -43,7 +43,7 @@ Techologies:
 ​
 ​
 ## Usage 
-[![Watch the video](https://github.com/JoseSachango/The-3AM-Crew/chat-app.png)](https://youtu.be/X9Xd8J7cLOQ)
+[![Watch the video](https://imgur.com/0pkx4pL.png)](https://youtu.be/X9Xd8J7cLOQ)
 ​
 ## Contribution Guideline
 Jose Sachango
