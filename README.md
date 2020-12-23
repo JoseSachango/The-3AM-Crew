@@ -1,35 +1,25 @@
 # Lexi Chat App
+![APM](https://img.shields.io/apm/l/pack)
 ​
 ## Table of Contents
-* [Installation Instructions](#Instructions)
+* [Instructions](#Instructions)
 * [Usage](#Usage)
+* [License](#license)
 * [Contribution Guideline](#Contribution-Guideline)
 * [Testing Instructions](#Testing-Instructions)
 * [Questions](#Questions)
 ​
 ## Description 
-Create an app using the handlebars.js as the template engine
+Lexi is an app created to be able to chat with family, friends or people, without ads that flood the website. It is also private and secure. With this app you will be able to create a username using your email and a password then start chatting with the people securely.
+​
 ## Instructions
-* Must use a Node and Express server
+* go to to the website [Heroku App](https://floating-thicket-44314.herokuapp.com/)
 ​
-* Must use Handlebars.js as the template engine
+* Create a username using your email and password.
 ​
-* Must be backed by a MySQL database with a Sequelize ORM
+* Enjoy Lexi app
 ​
-* Must utilize both GET and POST routes for retrieving and adding new data
-​
-* Must be deployed using Heroku (with data)
-​
-* Must utilize at least one new library, package, or technology that we haven’t discussed
-​
-* Must have a polished front end/UI
-​
-* Must have a folder structure that meets the MVC paradigm
-​
-* Must meet good quality coding standards (indentation, scoping, naming)
-​
-* Must protect API keys in Node with environment variables
-​
+* Don't forget to logout when you are done.
 ​
 Techologies:
     - JavaScript
@@ -39,11 +29,14 @@ Techologies:
     - MySQL WorkBanch
     - GitHUb Repository
     - npm packages
-    - Heroku
+    - [Heroku App](https://floating-thicket-44314.herokuapp.com/)
 ​
 ​
 ## Usage 
-[![Watch the video](https://imgur.com/0pkx4pL.png)](https://youtu.be/X9Xd8J7cLOQ)
+[![Watch the video](https://imgur.com/0pkx4pL)](https://youtu.be/X9Xd8J7cLOQ)
+​
+## License
+    MIT
 ​
 ## Contribution Guideline
 Jose Sachango
